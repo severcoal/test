@@ -1,0 +1,15 @@
+[package]
+name = "sandbox"
+version = "0.1.0"
+authors = ["codesandbox"]
+edition = "2018"
+description = "A Rust based container for developing WASM using bindgen."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+path = "src/rust/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.67"

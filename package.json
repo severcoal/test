@@ -1,0 +1,26 @@
+{
+  "name": "rust",
+  "version": "1.0.0",
+  "description": "A Rust based container for developing WASM using bindgen.\n\nnote: The README is important for continued development.",
+  "main": "src/javascript/node/index.js",
+  "config": {
+    "target": "web"
+  },
+  "scripts": {
+    "start": "nodemon src/javascript/node/index.js",
+    "build": "wasm-pack build --out-dir target/es2017/app --out-name $npm_package_name --target $npm_package_config_target && tsc -p ./src/javascript/app/tsconfig.json",
+    "preinstall": "chmod +x ./bin/repair-rust.sh && bash -c './bin/repair-rust.sh'",
+    "postinstall": "chmod +x ./bin/install-wasm-pack.sh && bash -c './bin/install-wasm-pack.sh' && rustup default stable",
+    "test-wasm": "wasm-pack test"
+  },
+  "dependencies": {
+    "nodemon": "2.0.4",
+    "showdown": "1.9.1"
+  },
+  "devDependencies": {
+    "typescript": "4.0.2"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "author": "Adam Crockett"
+}
